@@ -69,7 +69,7 @@ set linebreak                    " 英文单词在换行时不被截断
 
 "set cul	
 
-" set t_Co=256
+set t_Co=256
 " set term=xterm
 " set background=dark
 
