@@ -149,7 +149,7 @@ set pastetoggle=<F5>        " 粘贴的快捷键
 "=======================================================
 "	     vim-webdevicons 配置
 "=======================================================
-let g:webdevicons_enable = 1 
+let g:webdevicons_enable = 0 
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
@@ -175,7 +175,7 @@ let g:vim_markdown_initial_foldlevel=1
  
 
 "=======================================================
-"            vim-jsbeautify的配置
+"            vim-jsbeautify的配置(格式插件 js|html|css)
 "=======================================================
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
