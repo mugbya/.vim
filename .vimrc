@@ -196,7 +196,8 @@ function HeaderPython()
     call setline(1, "#!/usr/bin/env python")
     call append(1, "# -*- coding: utf-8 -*-")
     call append(2, "# Pw @ " . strftime('%Y-%m-%d %T', localtime()))
-    normal G
+    call append(3, "#  " )
+   normal G
     normal o
     normal o
 endf
