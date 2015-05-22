@@ -9,7 +9,7 @@ set autoread        " 设置当文件被改动时自动载入
 set nocompatible    " 关闭兼容模式
 set shortmess=atI   " 启动的时候不显示那个援助乌干达儿童的提示 
 set go=             " GUI时，不要菜单工具条
-set fileencodings=utf8,cp936,gb18030,big5
+set fileencodings=utf8,cp936,gb18030,big5,ucs-bom
 filetype off 
 
 "======================================================================
@@ -39,6 +39,7 @@ Plugin 'bling/vim-airline' 		" 状态行插件
 Plugin 'ryanoasis/vim-webdevicons'	" 图标插件
 Plugin 'plasticboy/vim-markdown'
 Plugin 'maksimr/vim-jsbeautify'         " js代码格式
+Plugin 'vim-scripts/Pydiction'		" python自动补齐
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -175,9 +176,31 @@ let g:vim_markdown_initial_foldlevel=1
  
 
 "=======================================================
-"            vim-jsbeautify的配置(格式插件 js|html|css)
+"            vim-jsbeautify的配置(格式化插件 js|html|css)
 "=======================================================
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+
+"=======================================================
+"            Pydiction配置
+"=======================================================
+let g:pydiction_location = '/home/mugbya/.vim/bundle/Pydiction/complete-dict'
+
+
+"=======================================================
+"            新建py文件自动生成头部
+"=======================================================
+function HeaderPython()
+    call setline(1, "#!/usr/bin/env python")
+    call append(1, "# -*- coding: utf-8 -*-")
+    call append(2, "# Pw @ " . strftime('%Y-%m-%d %T', localtime()))
+    normal G
+    normal o
+    normal o
+endf
+
+autocmd bufnewfile *.py call HeaderPython()
+
 
